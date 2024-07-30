@@ -33,18 +33,18 @@ defaults
 	errorfile 503 /etc/haproxy/errors/503.http
 	errorfile 504 /etc/haproxy/errors/504.http
 
-frontend oreste-frontend-http
+frontend Obure-frontend-http
         bind *:80
         mode http
 	http-request set-header X-Forwarded-Proto http
-        default_backend oreste-backend
+        default_backend Obure-backend
 
-frontend oreste-frontend-https
-	bind *:443 ssl crt /etc/haproxy/certs/www.abizeraoreste.tech.pem
+frontend Obure-frontend-https
+	bind *:443 ssl crt /etc/haproxy/certs/www.theoburejohn.tech.pem
 	http-request set-header X-Forwarded-Proto https
-	default_backend oreste-backend
+	default_backend Obure-backend
 
-backend oreste-backend
+backend Obure-backend
         balance roundrobin
-        server 6238-web-01 54.196.216.8:80 check
-        server 6238-web-02 98.80.15.59:80 check
+server 6233-web-01 54.86.160.53 check
+server 6233-web-02 54.160.206.107 check
